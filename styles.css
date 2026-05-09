@@ -1,0 +1,775 @@
+/* ==========================================
+   STYLES.CSS - Estilos de la página
+   Usa las variables definidas en design_system.css
+   ========================================== */
+
+/* ----- RESET BÁSICO ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== ENCABEZADO + NAVEGACIÓN ===== */
+.encabezado {
+    background-color: var(--color-blanco);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--sombra-suave);
+}
+
+.contenedor-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-principal);
+}
+
+.logo-icono {
+    font-size: 1.6rem;
+}
+
+.logo-resaltado {
+    color: var(--color-acento);
+}
+
+/* Menú de navegación */
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.navegacion a {
+    color: var(--color-texto-suave);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.navegacion a:hover {
+    color: var(--color-acento);
+}
+
+/* ===== BOTONES ===== */
+.boton-acento,
+.boton-secundario,
+.boton-principal {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: var(--radio-sm);
+    font-size: var(--texto-normal);
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+/* Botón naranja CTA */
+.boton-acento {
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    box-shadow: var(--sombra-boton);
+}
+
+.boton-acento:hover {
+    background-color: var(--color-acento-oscuro);
+    transform: translateY(-2px);
+}
+
+/* Botón secundario blanco con borde */
+.boton-secundario {
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    border: 1.5px solid var(--color-borde);
+}
+
+.boton-secundario:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+/* ===== HERO ===== */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-texto h1 {
+    font-size: var(--texto-hero);
+    color: var(--color-principal);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero-texto .resaltado {
+    color: var(--color-acento);
+}
+
+.hero-texto p {
+    color: var(--color-texto-suave);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    max-width: 480px;
+}
+
+.botones-hero {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* Imagen del hero (círculo + huellas decorativas) */
+.hero-imagen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-circulo {
+    width: 420px;
+    height: 420px;
+    max-width: 100%;
+    border-radius: 50%;
+    background-color: var(--color-fondo-suave);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--sombra-card);
+}
+
+.imagen-circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Huellas decorativas alrededor de la imagen */
+.huella {
+    position: absolute;
+    font-size: 1.6rem;
+    opacity: 0.55;
+}
+
+.huella-1 { top: 10%;  left: -2%;  font-size: 2rem; transform: rotate(-15deg); }
+.huella-2 { top: 0;    right: 5%;  font-size: 1.4rem; transform: rotate(20deg); }
+.huella-3 { bottom: 10%; left: 0;   font-size: 1.6rem; transform: rotate(-30deg); }
+.huella-4 { bottom: 5%; right: -2%; font-size: 2.2rem; transform: rotate(15deg); }
+.huella-5 { top: 50%;  right: -3%; font-size: 1.5rem; transform: rotate(-10deg); }
+
+/* Caja del mensaje oculto (historia de Luna) */
+.caja-mensaje {
+    display: none;
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    padding: 20px 24px;
+    background-color: var(--color-fondo-suave);
+    border-left: 4px solid var(--color-acento);
+    border-radius: var(--radio-sm);
+    color: var(--color-texto-suave);
+}
+
+.caja-mensaje.visible {
+    display: block;
+}
+
+/* ===== SECCIÓN OSCURA (verde) ===== */
+.seccion-oscura {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: var(--espacio-xl) 32px;
+    border-radius: 60px 60px 0 0;
+    margin-top: -20px;
+}
+
+.seccion-oscura .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.seccion-oscura h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+.texto-claro {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1.05rem;
+}
+
+/* Tarjetas de mascotas */
+.tarjetas-mascotas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.tarjeta-mascota {
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    padding: 28px 22px;
+    border-radius: var(--radio-md);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-mascota:hover {
+    transform: translateY(-6px);
+}
+
+.mascota-foto {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: var(--color-fondo-suave);
+    margin: 0 auto 18px;
+    overflow: hidden;
+    border: 4px solid var(--color-fondo-suave);
+}
+
+.mascota-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tarjeta-mascota h3 {
+    color: var(--color-principal);
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.tarjeta-mascota .datos {
+    color: var(--color-acento);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-mascota .descripcion {
+    color: var(--color-texto-suave);
+    font-size: 0.92rem;
+}
+
+/* ===== SECCIONES NORMALES ===== */
+.seccion {
+    padding: var(--espacio-xl) 32px;
+}
+
+.contenedor-form {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.seccion h2 {
+    color: var(--color-principal);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.subtitulo-form {
+    color: var(--color-texto-suave);
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.seccion-contacto {
+    background-color: var(--color-fondo-claro);
+    text-align: center;
+}
+
+.seccion-contacto p {
+    color: var(--color-texto-suave);
+    margin-bottom: 10px;
+}
+
+.seccion-contacto a {
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+/* ===== FORMULARIO ===== */
+.campo {
+    margin-bottom: var(--espacio-md);
+}
+
+.campo label,
+.etiqueta-grupo {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--espacio-xs);
+    color: var(--color-texto);
+    font-size: 0.95rem;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="password"],
+.campo input[type="number"],
+.campo input[type="date"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    font-size: var(--texto-normal);
+    font-family: inherit;
+    transition: border-color 0.25s ease;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+/* Cuando JS detecta un error, marcamos el input en rojo */
+.campo input.invalido {
+    border-color: var(--color-error-borde);
+    background-color: var(--color-error-fondo);
+}
+
+.ayuda {
+    display: block;
+    margin-top: 6px;
+    font-size: var(--texto-pequeno);
+    color: var(--color-texto-claro);
+}
+
+/* Mensaje de error específico de cada campo (debajo del input) */
+.error-campo {
+    display: block;
+    margin-top: 6px;
+    color: var(--color-error);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Si está vacío no ocupa espacio */
+.error-campo:empty {
+    display: none;
+}
+
+/* Opciones tipo "píldora" para radios y checkboxes */
+.grupo-opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.opcion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: var(--color-blanco);
+    border: 1.5px solid var(--color-borde);
+    border-radius: var(--radio-pildora);
+    cursor: pointer;
+}
+
+.opcion:hover {
+    border-color: var(--color-acento);
+}
+
+.opcion input {
+    accent-color: var(--color-acento);
+}
+
+.opcion-terminos {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--color-texto-suave);
+}
+
+.opcion-terminos input {
+    accent-color: var(--color-acento);
+}
+
+.botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+/* ===== MENSAJES DE VALIDACIÓN ===== */
+.mensaje-formulario {
+    margin-top: var(--espacio-md);
+    padding: 16px 20px;
+    border-radius: var(--radio-sm);
+    display: none;
+}
+
+.mensaje-formulario.exito {
+    display: block;
+    background-color: var(--color-exito-fondo);
+    color: var(--color-exito);
+    border-left: 4px solid var(--color-exito);
+}
+
+.mensaje-formulario.error {
+    display: block;
+    background-color: var(--color-error-fondo);
+    color: var(--color-error);
+    border-left: 4px solid var(--color-error-borde);
+}
+
+/* ===== PIE DE PÁGINA ===== */
+.pie-pagina {
+    background-color: var(--color-principal-oscuro);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 36px 32px;
+    text-align: center;
+}
+
+.pie-pagina .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo-footer {
+    color: var(--color-blanco);
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-footer .logo-resaltado {
+    color: var(--color-acento);
+}
+
+.pie-pagina p {
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 800px) {
+    .contenedor-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .navegacion ul {
+        gap: 18px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 60px;
+        text-align: center;
+    }
+
+    .hero-texto h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-texto p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .botones-hero {
+        justify-content: center;
+    }
+
+    .imagen-circulo {
+        width: 300px;
+        height: 300px;
+    }
+
+    .seccion-oscura {
+        padding: 60px 24px;
+        border-radius: 40px 40px 0 0;
+    }
+
+    .seccion-oscura h2 {
+        font-size: 1.7rem;
+    }
+
+    .seccion {
+        padding: 60px 24px;
+    }
+
+    .grupo-opciones {
+        flex-direction: column;
+    }
+}
+
+
+/* ==========================================
+   PANEL DEL DESIGN SYSTEM
+   Botón flotante + panel lateral que muestra
+   los tokens del archivo design_system.css
+   ========================================== */
+
+/* Botón flotante en la esquina */
+.ds-boton {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: var(--sombra-boton);
+    z-index: 60;
+}
+
+.ds-boton:hover {
+    background-color: var(--color-acento-oscuro);
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+/* Capa oscura detrás del panel */
+.ds-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+
+.ds-overlay.visible {
+    display: block;
+}
+
+/* Panel lateral */
+.ds-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 100%;
+    height: 100%;
+    background-color: var(--color-blanco);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.ds-panel.visible {
+    transform: translateX(0);
+}
+
+.ds-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.ds-cabecera h3 {
+    font-size: 1.2rem;
+}
+
+.ds-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--color-blanco);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.ds-cerrar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.ds-contenido {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.ds-intro {
+    background-color: var(--color-fondo-suave);
+    padding: 12px 16px;
+    border-radius: var(--radio-sm);
+    font-size: var(--texto-pequeno);
+    color: var(--color-texto-suave);
+    margin-bottom: 24px;
+}
+
+.ds-grupo {
+    margin-bottom: 28px;
+}
+
+.ds-grupo h4 {
+    color: var(--color-principal);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--color-fondo-suave);
+}
+
+.ds-color {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.ds-muestra {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    border: 1px solid var(--color-borde);
+}
+
+.ds-muestra--principal         { background-color: var(--color-principal); }
+.ds-muestra--principal-oscuro  { background-color: var(--color-principal-oscuro); }
+.ds-muestra--acento            { background-color: var(--color-acento); }
+.ds-muestra--fondo-suave       { background-color: var(--color-fondo-suave); }
+.ds-muestra--texto             { background-color: var(--color-texto); }
+.ds-muestra--exito             { background-color: var(--color-exito); }
+.ds-muestra--error             { background-color: var(--color-error); }
+
+.ds-color strong {
+    display: block;
+    color: var(--color-texto);
+    font-size: 0.95rem;
+}
+
+.ds-color small {
+    color: var(--color-texto-claro);
+    font-size: 0.78rem;
+    font-family: monospace;
+}
+
+.ds-tipo {
+    margin-bottom: 8px;
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+.ds-tipo small {
+    color: var(--color-texto-claro);
+    font-weight: normal;
+    margin-left: 8px;
+    font-size: 0.78rem;
+}
+
+.ds-tipo--grande     { font-size: var(--texto-grande); }
+.ds-tipo--titulo     { font-size: var(--texto-titulo); }
+.ds-tipo--subtitulo  { font-size: var(--texto-subtitulo); }
+.ds-tipo--normal     { font-size: var(--texto-normal); }
+.ds-tipo--pequeno    { font-size: var(--texto-pequeno); }
+
+.ds-espacio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.ds-barra {
+    background-color: var(--color-acento);
+    height: 14px;
+    border-radius: 4px;
+}
+
+.ds-barra--xs  { width: var(--espacio-xs); }
+.ds-barra--sm  { width: var(--espacio-sm); }
+.ds-barra--md  { width: var(--espacio-md); }
+.ds-barra--lg  { width: var(--espacio-lg); }
+
+.ds-espacio span {
+    color: var(--color-texto-suave);
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+.ds-cajas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ds-caja-radio {
+    width: 75px;
+    height: 75px;
+    background-color: var(--color-fondo-suave);
+    border: 2px solid var(--color-acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-texto);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.ds-caja-radio--sm       { border-radius: var(--radio-sm); }
+.ds-caja-radio--md       { border-radius: var(--radio-md); }
+.ds-caja-radio--pildora  { border-radius: var(--radio-pildora); }
+
+.ds-grupo button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    .ds-panel {
+        width: 100%;
+    }
+}

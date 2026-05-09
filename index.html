@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patitas Felices - Adopta un amigo</title>
+
+    <link rel="stylesheet" href="design_system.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== ENCABEZADO + NAVEGACIÓN ===== -->
+<header class="encabezado">
+    <div class="contenedor-nav">
+
+        <a href="#inicio" class="logo">
+            <span class="logo-icono">🐾</span>
+            <span class="logo-texto">Patitas <span class="logo-resaltado">Felices</span></span>
+        </a>
+
+        <nav class="navegacion">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#mascotas">Mascotas</a></li>
+                <li><a href="#adopcion">Adoptar</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <a href="#adopcion" class="boton-acento">Adoptar ahora</a>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+
+        <div class="hero-texto">
+            <h1>Encuentra a tu<br>nuevo <span class="resaltado">mejor amigo</span></h1>
+            <p>
+                Somos un refugio que conecta a mascotas rescatadas con
+                familias cariñosas. Si estás listo para dar amor, aquí
+                encontrarás a tu compañero perfecto.
+            </p>
+            <div class="botones-hero">
+                <a href="#adopcion" class="boton-acento">Adoptar ahora</a>
+                <button id="btnHistoria" class="boton-secundario" type="button">
+                    Conocer una historia 💛
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-imagen">
+            <span class="huella huella-1">🐾</span>
+            <span class="huella huella-2">🐾</span>
+            <span class="huella huella-3">🐾</span>
+            <span class="huella huella-4">🐾</span>
+            <span class="huella huella-5">🐾</span>
+            <div class="imagen-circulo">
+                <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=700&q=80"
+                     alt="Un perro y un gato descansando juntos">
+            </div>
+        </div>
+
+        <p id="historiaOculta" class="caja-mensaje">
+            <strong>Luna</strong> llegó a nosotros muy asustada. Hoy, gracias
+            a la familia Pérez, duerme cada noche en su sillón favorito.
+            Tú también puedes cambiar una vida.
+        </p>
+    </section>
+
+
+    <!-- ===== MASCOTAS (sección verde oscuro) ===== -->
+    <article id="mascotas" class="seccion-oscura">
+        <div class="contenedor">
+            <h2>Más que una mascota,<br>un amigo de por vida</h2>
+            <p class="texto-claro">
+                Conoce a algunos de nuestros amigos. Cada uno tiene su propia historia
+                y está esperando un hogar lleno de amor.
+            </p>
+
+            <div class="tarjetas-mascotas">
+
+                <div class="tarjeta-mascota">
+                    <div class="mascota-foto">
+                        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=400&q=80"
+                             alt="Coco">
+                    </div>
+                    <h3>Coco</h3>
+                    <p class="datos">Perro · 2 años</p>
+                    <p class="descripcion">Juguetón, cariñoso y siempre listo para una aventura.</p>
+                </div>
+
+                <div class="tarjeta-mascota">
+                    <div class="mascota-foto">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80"
+                             alt="Mishi">
+                    </div>
+                    <h3>Mishi</h3>
+                    <p class="datos">Gata · 1 año</p>
+                    <p class="descripcion">Tranquila y mimosa, le encanta dormir en lugares soleados.</p>
+                </div>
+
+                <div class="tarjeta-mascota">
+                    <div class="mascota-foto">
+                        <img src="https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=400&q=80"
+                             alt="Nube">
+                    </div>
+                    <h3>Nube</h3>
+                    <p class="datos">Conejo · 6 meses</p>
+                    <p class="descripcion">Curioso y sociable, se lleva bien con todos.</p>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+
+    <!-- ===== FORMULARIO DE ADOPCIÓN ===== -->
+    <section id="adopcion" class="seccion">
+        <div class="contenedor-form">
+            <h2>Solicitud de adopción</h2>
+            <p class="subtitulo-form">
+                Cuéntanos sobre ti para encontrar a la mascota ideal.
+                Te contactaremos en menos de 48 horas.
+            </p>
+
+            <form id="formularioAdopcion"
+                  action="https://formsubmit.co/patitas@ejemplo.com"
+                  method="POST"
+                  novalidate>
+
+                <!-- Input TEXT -->
+                <div class="campo">
+                    <label for="nombre">Tu nombre</label>
+                    <input type="text" id="nombre" name="nombre"
+                           placeholder="Ej: María Gómez"
+                           minlength="3" required>
+                    <small class="error-campo" id="error-nombre"></small>
+                </div>
+
+                <!-- Input EMAIL -->
+                <div class="campo">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo"
+                           placeholder="tucorreo@ejemplo.com" required>
+                    <small class="error-campo" id="error-correo"></small>
+                </div>
+
+                <!-- Input PASSWORD -->
+                <div class="campo">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena"
+                           placeholder="Mínimo 6 caracteres"
+                           minlength="6" required>
+                    <small class="ayuda">Para revisar tu solicitud después.</small>
+                    <small class="error-campo" id="error-contrasena"></small>
+                </div>
+
+                <!-- Input NUMBER -->
+                <div class="campo">
+                    <label for="edad">Tu edad</label>
+                    <input type="number" id="edad" name="edad"
+                           min="18" max="99" required>
+                    <small class="error-campo" id="error-edad"></small>
+                </div>
+
+                <!-- Input DATE -->
+                <div class="campo">
+                    <label for="fecha">Día que te gustaría visitarnos</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                    <small class="error-campo" id="error-fecha"></small>
+                </div>
+
+                <!-- Inputs RADIO -->
+                <div class="campo">
+                    <span class="etiqueta-grupo">¿Qué mascota prefieres?</span>
+                    <div class="grupo-opciones">
+                        <label class="opcion">
+                            <input type="radio" name="mascota" value="perro" required>
+                            🐶 Perro
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="mascota" value="gato">
+                            🐱 Gato
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="mascota" value="conejo">
+                            🐰 Conejo
+                        </label>
+                    </div>
+                    <small class="error-campo" id="error-mascota"></small>
+                </div>
+
+                <!-- Inputs CHECKBOX -->
+                <div class="campo">
+                    <span class="etiqueta-grupo">Características que te gustan</span>
+                    <div class="grupo-opciones">
+                        <label class="opcion">
+                            <input type="checkbox" name="caracteristicas" value="tranquila">
+                            Tranquila
+                        </label>
+                        <label class="opcion">
+                            <input type="checkbox" name="caracteristicas" value="jugueton">
+                            Juguetón
+                        </label>
+                        <label class="opcion">
+                            <input type="checkbox" name="caracteristicas" value="cachorro">
+                            Cachorro
+                        </label>
+                    </div>
+                    <small class="error-campo" id="error-caracteristicas"></small>
+                </div>
+
+                <!-- Términos -->
+                <div class="campo">
+                    <label class="opcion-terminos">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        Acepto el compromiso de adopción responsable.
+                    </label>
+                    <small class="error-campo" id="error-terminos"></small>
+                </div>
+
+                <div class="botones">
+                    <button type="submit" class="boton-acento">Enviar solicitud</button>
+                    <button type="reset" class="boton-secundario">Limpiar</button>
+                </div>
+
+                <p id="mensajeFormulario" class="mensaje-formulario"></p>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="seccion seccion-contacto">
+        <div class="contenedor-form">
+            <h2>¿Quieres saber más?</h2>
+            <p>Estamos disponibles de lunes a sábado, de 9:00 a 18:00.</p>
+            <p>
+                ✉️ <a href="mailto:hola@patitasfelices.com">hola@patitasfelices.com</a><br>
+                📍 Av. Siempre Viva 742, Quito · 📞 (02) 123-4567
+            </p>
+        </div>
+    </section>
+
+</main>
+
+
+<!-- ===== PIE DE PÁGINA ===== -->
+<footer class="pie-pagina">
+    <div class="contenedor">
+        <div class="logo logo-footer">
+            <span class="logo-icono">🐾</span>
+            <span class="logo-texto">Patitas Felices</span>
+        </div>
+        <p>© 2026 Patitas Felices · Hecho con cariño 🐾</p>
+    </div>
+</footer>
+
+
+<!-- ===== BOTÓN FLOTANTE PARA ABRIR EL DESIGN SYSTEM ===== -->
+<button id="btnDS" class="ds-boton" title="Ver Design System">🎨</button>
+
+<!-- ===== PANEL DEL DESIGN SYSTEM ===== -->
+<aside id="panelDS" class="ds-panel">
+
+    <div class="ds-cabecera">
+        <h3>🎨 Design System</h3>
+        <button id="btnCerrarDS" class="ds-cerrar">✕</button>
+    </div>
+
+    <div class="ds-contenido">
+
+        <p class="ds-intro">
+            Estos son los "tokens" reutilizables del diseño.
+            Están en <strong>design_system.css</strong> y se usan en toda la página.
+        </p>
+
+        <!-- COLORES -->
+        <section class="ds-grupo">
+            <h4>Colores</h4>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--principal"></div>
+                <div>
+                    <strong>Principal</strong>
+                    <small>--color-principal · #2d5e3e</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--principal-oscuro"></div>
+                <div>
+                    <strong>Principal oscuro</strong>
+                    <small>--color-principal-oscuro · #1f4530</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--acento"></div>
+                <div>
+                    <strong>Acento</strong>
+                    <small>--color-acento · #f4a226</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--fondo-suave"></div>
+                <div>
+                    <strong>Fondo suave</strong>
+                    <small>--color-fondo-suave · #fdf0e0</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--texto"></div>
+                <div>
+                    <strong>Texto</strong>
+                    <small>--color-texto · #1a1a1a</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--exito"></div>
+                <div>
+                    <strong>Éxito</strong>
+                    <small>--color-exito · #2e7d32</small>
+                </div>
+            </div>
+            <div class="ds-color">
+                <div class="ds-muestra ds-muestra--error"></div>
+                <div>
+                    <strong>Error</strong>
+                    <small>--color-error · #c62828</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPOGRAFÍA -->
+        <section class="ds-grupo">
+            <h4>Tipografía</h4>
+            <p class="ds-tipo ds-tipo--grande">Aa <small>Grande (2.2rem)</small></p>
+            <p class="ds-tipo ds-tipo--titulo">Aa <small>Título (1.7rem)</small></p>
+            <p class="ds-tipo ds-tipo--subtitulo">Aa <small>Subtítulo (1.2rem)</small></p>
+            <p class="ds-tipo ds-tipo--normal">Aa <small>Normal (1rem)</small></p>
+            <p class="ds-tipo ds-tipo--pequeno">Aa <small>Pequeño (0.9rem)</small></p>
+        </section>
+
+        <!-- ESPACIADO -->
+        <section class="ds-grupo">
+            <h4>Espaciado</h4>
+            <div class="ds-espacio">
+                <div class="ds-barra ds-barra--xs"></div>
+                <span>xs · 8px</span>
+            </div>
+            <div class="ds-espacio">
+                <div class="ds-barra ds-barra--sm"></div>
+                <span>sm · 14px</span>
+            </div>
+            <div class="ds-espacio">
+                <div class="ds-barra ds-barra--md"></div>
+                <span>md · 22px</span>
+            </div>
+            <div class="ds-espacio">
+                <div class="ds-barra ds-barra--lg"></div>
+                <span>lg · 40px</span>
+            </div>
+        </section>
+
+        <!-- BORDES -->
+        <section class="ds-grupo">
+            <h4>Bordes redondeados</h4>
+            <div class="ds-cajas">
+                <div class="ds-caja-radio ds-caja-radio--sm">sm<br>12px</div>
+                <div class="ds-caja-radio ds-caja-radio--md">md<br>20px</div>
+                <div class="ds-caja-radio ds-caja-radio--pildora">píldora<br>28px</div>
+            </div>
+        </section>
+
+        <!-- BOTONES -->
+        <section class="ds-grupo">
+            <h4>Botones</h4>
+            <button class="boton-acento" type="button">Acento (CTA)</button>
+            <button class="boton-secundario" type="button">Secundario</button>
+        </section>
+
+    </div>
+</aside>
+
+<!-- Capa oscura detrás del panel -->
+<div id="overlayDS" class="ds-overlay"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
