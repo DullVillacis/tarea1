@@ -1,13 +1,3 @@
-/* ==========================================
-   SCRIPT.JS - Interactividad de la página
-   1. Mostrar/ocultar la historia de Luna
-   2. Validar el formulario al enviarlo
-   3. Abrir/cerrar el panel del Design System
-   ========================================== */
-
-
-/* ----- 1. MOSTRAR / OCULTAR LA HISTORIA ----- */
-
 const boton = document.getElementById('btnHistoria');
 const historia = document.getElementById('historiaOculta');
 
@@ -17,17 +7,14 @@ boton.addEventListener('click', function () {
     if (historia.classList.contains('visible')) {
         boton.textContent = 'Ocultar historia';
     } else {
-        boton.textContent = 'Conocer una historia 💛';
+        boton.textContent = 'Conocer una historia';
     }
 });
 
 
-/* ----- 2. VALIDAR EL FORMULARIO ----- */
-
 const formulario = document.getElementById('formularioAdopcion');
 const mensaje = document.getElementById('mensajeFormulario');
 
-// Función auxiliar: muestra el error debajo del campo y lo marca en rojo
 function mostrarError(idCampo, texto) {
     const span = document.getElementById('error-' + idCampo);
     if (span) span.textContent = texto;
@@ -36,7 +23,6 @@ function mostrarError(idCampo, texto) {
     if (input) input.classList.add('invalido');
 }
 
-// Función auxiliar: limpia todos los errores anteriores
 function limpiarErrores() {
     formulario.querySelectorAll('.error-campo').forEach(s => s.textContent = '');
     formulario.querySelectorAll('input.invalido').forEach(i => i.classList.remove('invalido'));
@@ -46,14 +32,9 @@ function limpiarErrores() {
 
 
 formulario.addEventListener('submit', function (evento) {
-
-    // Evitamos el envío automático para validar primero
     evento.preventDefault();
-
-    // Limpiamos errores anteriores
     limpiarErrores();
 
-    // Obtenemos los valores actuales
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
     const contrasena = document.getElementById('contrasena').value;
@@ -63,11 +44,8 @@ formulario.addEventListener('submit', function (evento) {
     const caracteristicas = document.querySelectorAll('input[name="caracteristicas"]:checked');
     const aceptaTerminos = document.getElementById('terminos').checked;
 
-    // Variable para saber si hay algún error
     let hayErrores = false;
 
-
-    // ===== VALIDACIÓN 1: NOMBRE =====
     if (nombre === '') {
         mostrarError('nombre', 'Por favor ingresa tu nombre.');
         hayErrores = true;
@@ -79,8 +57,6 @@ formulario.addEventListener('submit', function (evento) {
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 2: CORREO =====
     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (correo === '') {
@@ -91,8 +67,6 @@ formulario.addEventListener('submit', function (evento) {
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 3: CONTRASEÑA =====
     if (contrasena === '') {
         mostrarError('contrasena', 'Por favor crea una contraseña.');
         hayErrores = true;
@@ -101,8 +75,6 @@ formulario.addEventListener('submit', function (evento) {
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 4: EDAD =====
     if (edad === '') {
         mostrarError('edad', 'Por favor ingresa tu edad.');
         hayErrores = true;
@@ -114,8 +86,6 @@ formulario.addEventListener('submit', function (evento) {
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 5: FECHA =====
     if (fecha === '') {
         mostrarError('fecha', 'Selecciona una fecha para tu visita.');
         hayErrores = true;
@@ -130,49 +100,37 @@ formulario.addEventListener('submit', function (evento) {
         }
     }
 
-
-    // ===== VALIDACIÓN 6: MASCOTA (radio) =====
     if (!mascota) {
         document.getElementById('error-mascota').textContent =
             'Selecciona qué mascota prefieres.';
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 7: CARACTERÍSTICAS (checkboxes) =====
     if (caracteristicas.length === 0) {
         document.getElementById('error-caracteristicas').textContent =
             'Marca al menos una característica que te guste.';
         hayErrores = true;
     }
 
-
-    // ===== VALIDACIÓN 8: TÉRMINOS =====
     if (!aceptaTerminos) {
         document.getElementById('error-terminos').textContent =
             'Debes aceptar el compromiso de adopción responsable.';
         hayErrores = true;
     }
 
-
-    // ===== MOSTRAR RESULTADO =====
-
     if (hayErrores) {
-        // Hacemos scroll hacia el primer campo con error
         const primerError = formulario.querySelector('.invalido, .error-campo:not(:empty)');
         if (primerError) {
             primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     } else {
-        // Todo correcto: mensaje verde de éxito
         mensaje.className = 'mensaje-formulario exito';
-        mensaje.innerHTML = '🐾 ¡Gracias, <strong>' + nombre + '</strong>! ' +
+        mensaje.innerHTML = '¡Gracias, <strong>' + nombre + '</strong>! ' +
                             'Recibimos tu solicitud y te contactaremos a ' +
                             '<strong>' + correo + '</strong> pronto.';
 
         mensaje.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Limpiamos el formulario tras 4 segundos
         setTimeout(function () {
             formulario.reset();
             mensaje.className = 'mensaje-formulario';
@@ -182,9 +140,7 @@ formulario.addEventListener('submit', function (evento) {
 });
 
 
-// Quitar el error del campo cuando el usuario empieza a corregir
 formulario.querySelectorAll('input').forEach(function (input) {
-
     function limpiarErrorDelCampo() {
         input.classList.remove('invalido');
         const span = document.getElementById('error-' + input.id);
@@ -195,7 +151,6 @@ formulario.querySelectorAll('input').forEach(function (input) {
     input.addEventListener('change', limpiarErrorDelCampo);
 });
 
-// Para los grupos (radio y checkbox), limpiar al elegir cualquier opción
 formulario.querySelectorAll('input[name="mascota"]').forEach(r => {
     r.addEventListener('change', () => {
         document.getElementById('error-mascota').textContent = '';
@@ -208,8 +163,6 @@ formulario.querySelectorAll('input[name="caracteristicas"]').forEach(c => {
     });
 });
 
-
-/* ----- 3. ABRIR / CERRAR EL PANEL DEL DESIGN SYSTEM ----- */
 
 const botonDS = document.getElementById('btnDS');
 const panelDS = document.getElementById('panelDS');

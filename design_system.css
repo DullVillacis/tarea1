@@ -1,27 +1,18 @@
-/* ==========================================
-   DESIGN SYSTEM - Patitas Felices
-   Variables reutilizables del diseño.
-   Si quiero cambiar un color o tamaño,
-   lo hago aquí y se aplica en toda la página.
-   ========================================== */
-
 :root {
+    --color-principal: #2d5e3e;
+    --color-principal-oscuro: #1f4530;
+    --color-acento: #f4a226;
+    --color-acento-oscuro: #d68d1a;
 
-    /* ----- COLORES ----- */
-    --color-principal: #2d5e3e;        /* Verde bosque (títulos, secciones oscuras) */
-    --color-principal-oscuro: #1f4530; /* Verde más oscuro (hover) */
-    --color-acento: #f4a226;           /* Naranja (botones CTA) */
-    --color-acento-oscuro: #d68d1a;    /* Naranja más oscuro (hover) */
-
-    --color-fondo: #ffffff;            /* Fondo principal blanco */
-    --color-fondo-suave: #fdf0e0;      /* Crema/durazno (círculos de fotos) */
-    --color-fondo-claro: #fafafa;      /* Gris muy claro */
+    --color-fondo: #ffffff;
+    --color-fondo-suave: #fdf0e0;
+    --color-fondo-claro: #fafafa;
     --color-blanco: #ffffff;
-    --color-borde: #e8e8e8;            /* Borde sutil */
+    --color-borde: #e8e8e8;
 
-    --color-texto: #1a1a1a;            /* Texto principal */
-    --color-texto-suave: #555555;      /* Texto secundario */
-    --color-texto-claro: #888888;      /* Texto de ayuda */
+    --color-texto: #1a1a1a;
+    --color-texto-suave: #555555;
+    --color-texto-claro: #888888;
 
     --color-exito: #2e7d32;
     --color-exito-fondo: #e8f5e9;
@@ -29,7 +20,6 @@
     --color-error-fondo: #fff5f5;
     --color-error-borde: #e57373;
 
-    /* ----- TIPOGRAFÍA ----- */
     --fuente: 'Segoe UI', system-ui, -apple-system, sans-serif;
     --texto-hero: 3rem;
     --texto-grande: 2.2rem;
@@ -38,19 +28,16 @@
     --texto-normal: 1rem;
     --texto-pequeno: 0.9rem;
 
-    /* ----- ESPACIADO ----- */
     --espacio-xs: 8px;
     --espacio-sm: 14px;
     --espacio-md: 22px;
     --espacio-lg: 40px;
     --espacio-xl: 80px;
 
-    /* ----- BORDES REDONDEADOS ----- */
     --radio-sm: 12px;
     --radio-md: 20px;
     --radio-pildora: 28px;
 
-    /* ----- SOMBRAS ----- */
     --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.05);
     --sombra-card: 0 8px 24px rgba(0, 0, 0, 0.08);
     --sombra-boton: 0 4px 12px rgba(244, 162, 38, 0.3);
